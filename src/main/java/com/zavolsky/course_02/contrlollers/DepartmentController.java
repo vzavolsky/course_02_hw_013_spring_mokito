@@ -17,16 +17,6 @@ public class DepartmentController {
         this.departments = departments;
     }
 
-    @GetMapping(path = "/add")
-    public Department add(@RequestParam("name") String name) {
-        return departments.add(name);
-    }
-
-    @GetMapping(path = "/create")
-    public Department create() {
-        return departments.createDepartment();
-    }
-
     @GetMapping(path = "/{id}/employees")
     public List<Employee> getEmployeesByDepID(@PathVariable("id") int depID) {
         return departments.getEmployeesByDepID(depID);
@@ -45,11 +35,6 @@ public class DepartmentController {
     @GetMapping(path = "/{id}/salary/sum")
     public double getEmployeesSalarySumByDepID(@PathVariable("id") int depID) {
         return departments.getEmployeesSalarySumByDepID(depID);
-    }
-
-    @GetMapping(path = "/show")
-    public List<Department> showAllDepartments() {
-        return departments.getDepartments();
     }
 
     @GetMapping(path = "/employees")
